@@ -1,0 +1,11 @@
+@import "../sass/color.scss";
+@import "../sass/zIndex.scss";
+
+.menu-container {
+    width: 300px;
+    height: 100vh;
+    right: 0;
+    z-index: $menu;
+    position: absolute;
+    background-color: $bg-color1;
+}

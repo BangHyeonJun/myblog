@@ -1,0 +1,31 @@
+처음 프로젝트를 만들 때 아래 링크를 참고하여 사용
+1. https://github.com/zeit/next.js/tree/master/examples/with-mobx
+
+mobx 데코레이트 오류 날때 
+https://github.com/Microsoft/vscode/issues/45071
+
+NEXT.JS 에서 SCSS 사용법
+1. https://velog.io/@sonaky47/%EC%95%84%EC%A3%BC-%EC%A7%A7%EC%9D%80-%EA%B8%80-Next.js%EC%97%90%EC%84%9C-ScSS%ED%8C%8C%EC%9D%BC-sourcemap-%EA%B8%B0%EB%8A%A5-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0
+- 참고 : https://www.npmjs.com/package/@zeit/next-sass
+
+튜토리얼
+1. https://blog.kesuskim.com/2017/07/develop-website-using-next-js/
+2. https://brunch.co.kr/@hee072794/81
+3. http://webframeworks.kr/tags/nextjs/
+4. https://blog.usefulparadigm.com/next-js%EC%99%80-headless-cms-973a9a7217b7
+
+
+React, Next, Express, mobX, axios, scss 환경 꾸미기.
+1. https://kokohapps.tistory.com/entry/React-Next-Express-mobX-axios-%ED%99%98%EA%B2%BD-%EA%BE%B8%EB%AF%B8%EA%B8%B0
+2. https://github.com/zeit/next.js/tree/canary/examples/with-mobx
+
+mobx 참고자료
+1. https://velog.io/@velopert/MobX-1-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-9sjltans3p#decorator-%EB%AC%B8%EB%B2%95%EC%9C%BC%EB%A1%9C-%EB%8D%94-%ED%8E%B8%ED%95%98%EA%B2%8C
+2. https://mobx.js.org/best/decorators.html
+3. https://medium.com/@jsh901220/moxb-%EC%B2%98%EC%9D%8C-%EC%8B%9C%EC%9E%91%ED%95%B4%EB%B3%B4%EA%B8%B0-2-97c88bbd044f
+
+사용한 라이브러리
+1. anime.js
+2. fontawesome
+3. mobx
+4. sass

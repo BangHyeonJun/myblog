@@ -1,0 +1,8 @@
+html,
+body,
+#__next {
+    display: flex;
+    flex-direction: column;
+    margin: 0px !important;
+    width: 100%;
+}
