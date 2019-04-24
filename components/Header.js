@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import anime from "animejs";
 import "./Header.scss";
 
@@ -16,28 +16,60 @@ class Logo extends Component {
 }
 
 class MenuIcon extends Component {
-    animeToggleValue = 0;
+    state = {
+        faIcon: faBars,
+        anim: {
+            lotate: 720
+        }
+    };
+
+    // 메뉴 아이콘을 바꿔주는 부분
+    changeIcon = icon => {
+        if (icon === faBars) {
+            this.setState({
+                faIcon: faTimes
+            });
+        } else if (icon === faTimes) {
+            this.setState({
+                faIcon: faBars
+            });
+        }
+    };
+
+    // 애니메이션 진행 부분
     anime = () => {
-        const tempValue = this.animeToggleValue > 0 ? 0 : 360;
-        this.animeToggleValue = tempValue;
+        let self = this; // 자기 자신을 객체로 가지기 위한 부분
+        let { faIcon, anim } = this.state;
+        this.setState({
+            anim: {
+                lotate: anim.lotate > 0 ? 0 : 720
+            }
+        });
         anime({
             targets: this.icon,
             rotate: {
-                value: tempValue,
-                duration: 1000,
+                value: anim.lotate,
+                duration: 700,
                 easing: "easeInOutSine",
                 autoplay: false,
                 loop: true
+            },
+            update: function(anim) {
+                console.log("progress : " + Math.round(anim.progress) + "%");
+                if (Math.round(anim.progress) > 80) {
+                    self.changeIcon(faIcon);
+                }
             }
         });
     };
 
     render() {
+        const { faIcon } = this.state;
         return (
             <div className="menu-btn" onMouseDown={this.anime}>
                 {/* 여기는 메뉴 버튼을 넣는 곳 입니다.*/}
                 <div ref={icon => (this.icon = icon)}>
-                    <FontAwesomeIcon icon={faBars} />
+                    <FontAwesomeIcon icon={faIcon} />
                 </div>
             </div>
         );
