@@ -11,14 +11,3 @@ const Layout = ({ children }) => (
     </Container>
 );
 export default Layout;
-
-// import Header from "./Header";
-
-// const Layout = ({ children }) => (
-//     <div>
-//         <Header />
-//         {children}
-//     </div>
-// );
-
-// export default Layout;

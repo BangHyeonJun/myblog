@@ -1,11 +1,94 @@
 @import "../sass/color.scss";
 @import "../sass/zIndex.scss";
+@import "../sass/common.scss";
+
+.menu-bg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(189, 189, 189, 0.3);
+    z-index: $menu-bg;
+
+    animation: fadein 1s;
+    -moz-animation: fadein 1s; /* Firefox */
+    -webkit-animation: fadein 1s; /* Safari and Chrome */
+    -o-animation: fadein 1s; /* Opera */
+
+    @keyframes fadein {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    @-moz-keyframes fadein {
+        /* Firefox */
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    @-webkit-keyframes fadein {
+        /* Safari and Chrome */
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    @-o-keyframes fadein {
+        /* Opera */
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+}
 
 .menu-container {
     width: 300px;
-    height: 100vh;
-    right: 0;
+    height: 100%;
+    position: fixed;
+    right: -300px;
+    box-shadow: 3px 9px 10px 5px rgba(189, 189, 189, 0.3); // X offset, Y offset, blur, spread, color
+    background-color: $menu-bg-color;
+    color: $menu-font-inactive;
     z-index: $menu;
-    position: absolute;
-    background-color: $bg-color1;
+
+    & > ul {
+        // 사이드 메뉴 부모 박스
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        & > li {
+            // 부모 메뉴
+            width: 100%;
+            height: 60px;
+            display: flex;
+            align-items: center;
+
+            &:hover {
+                background-color: $menu-item-hover;
+            }
+        }
+        & > ul {
+            // 사이드 메뉴 자식 박스
+            display: none;
+            & > li {
+                // 부모 메뉴
+                width: 100%;
+                height: 60px;
+                padding-left: 30px;
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
 }

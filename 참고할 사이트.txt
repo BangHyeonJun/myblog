@@ -24,6 +24,12 @@ mobx 참고자료
 2. https://mobx.js.org/best/decorators.html
 3. https://medium.com/@jsh901220/moxb-%EC%B2%98%EC%9D%8C-%EC%8B%9C%EC%9E%91%ED%95%B4%EB%B3%B4%EA%B8%B0-2-97c88bbd044f
 
+함수 스타일링
+1. https://velog.io/@velopert/react-component-styling#utils-%ED%95%A8%EC%88%98-%EB%B6%84%EB%A6%AC%ED%95%98%EA%B8%B0
+
+애니메이션
+1. https://velopert.com/1148
+
 사용한 라이브러리
 1. anime.js
 2. fontawesome
