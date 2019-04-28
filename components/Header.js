@@ -92,16 +92,6 @@ class MenuIcon extends Component {
 }
 
 export default class Header extends Component {
-    // anime = () => {
-    //     const { translateX, translateY } = this.props;
-    //     anime({
-    //         targets: this.box,
-    //         translateX: { value: translateX },
-    //         translateY: { value: translateY },
-    //         duration: 2000
-    //     });
-    // };
-
     render() {
         return (
             <header>
@@ -111,24 +101,3 @@ export default class Header extends Component {
         );
     }
 }
-
-// import Link from "next/link";
-
-// const linkStyle = {
-//     marginRight: "1rem"
-// };
-
-// const Header = () => {
-//     return (
-//         <div>
-//             <Link href="/">
-//                 <a style={linkStyle}>홈</a>
-//             </Link>
-//             <Link href="/board">
-//                 <a style={linkStyle}>게시판</a>
-//             </Link>
-//         </div>
-//     );
-// };
-
-// export default Header;

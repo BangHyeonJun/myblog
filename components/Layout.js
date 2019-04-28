@@ -7,7 +7,7 @@ const Layout = ({ children }) => (
     <Container>
         <Header />
         <Menu />
-        <div>{children}</div>
+        {children}
     </Container>
 );
 export default Layout;

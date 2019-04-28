@@ -1,0 +1,35 @@
+@import "../../sass/color.scss";
+
+.search-container {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* 검색 창 부분 */
+    .serach-input {
+        width: 70%;
+        height: 40px;
+        background-color: $search-inner-bg;
+        border: solid 1px $input-border-color;
+        border-radius: 100px;
+        padding: 10px;
+
+        &:focus {
+            outline-width: 0;
+            border: solid 2px $input-border-color;
+        }
+    }
+
+    .icon-container {
+        width: 26px;
+        height: 26px;
+        position: absolute;
+
+        .search {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
