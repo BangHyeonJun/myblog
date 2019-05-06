@@ -7,107 +7,97 @@ import "./Menu.scss";
 @inject("store")
 @observer
 export default class Menu extends Component {
-    state = {
-        style: {
-            menu_bg: {
-                display: "none"
-            }
-        }
-    };
-
-    // 메뉴를 세팅해 준다.
-    getMenuItem = (fid, id, title, open, child) => {
-        let key = id * 50;
-        return (
-            <Fragment key={fid}>
-                <li key={key} className="Menu-parents">
-                    {title}
-                </li>
-                <ul>
-                    {child.map((childMenu, idx) => {
-                        let {
-                            tree,
-                            parentId,
-                            id,
-                            title,
-                            url,
-                            active
-                        } = childMenu;
-                        return <li key={key + id}>{title}</li>;
-                    })}
-                </ul>
-            </Fragment>
-        );
-    };
-
-    componentDidMount(nextProps) {
-        // 모든 마운트가 완료된 후 발생
-        this.props.store.MenuItem.showSideBar = this.showMenu;
-        this.props.store.MenuItem.hideSideBar = this.hideMenu;
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: null
+        };
     }
 
-    // Menu를 보여준다.
-    showMenu = e => {
-        e.preventDefault(); // 이전 이벤트를 해제
-        this.setState({
-            style: {
-                menu_bg: {
-                    display: "block"
-                }
-            }
-        });
-        anime({
-            targets: this.menu,
-            translateX: -300
-        });
-    };
+    static getDerivedStateFromProps(nextProps, prevState) {
+        console.log("getDerivedStateFromProps");
+        return {
+            name: "test"
+        };
+    }
 
-    // Menu를 숨겨준다.
-    hideMenu = e => {
-        e.preventDefault(); // 이전 이벤트를 해제
-        this.setState({
-            style: {
-                menu_bg: {
-                    display: "none"
-                }
-            }
-        });
-        anime({
-            targets: this.menu,
-            translateX: 0
-        });
-    };
+    shouldComponentUpdate() {
+        console.log("shouldComponentUpdate");
+    }
 
-    hideMenuWIcon = e => {
-        this.props.store.MenuItem.closeMenu(e);
-        this.hideMenu(e);
-    };
+    getSnapshotBeforeUpdate(prevProps, prevState) {
+        console.log("getSnapshotBeforeUpdate");
+        return null;
+    }
+
+    componentDidMount() {
+        console.log("componentDidMount");
+    }
+
+    componentDidUpdate() {
+        console.log("componentDidUpdate");
+    }
+
+    componentWillUnmount() {
+        console.log("componentWillUnmount");
+    }
+
+    componentDidCatch(error, info) {
+        // Display fallback UI
+        this.setState({ hasError: true });
+        // You can also log the error to an error reporting service
+        logErrorToMyService(error, info);
+    }
 
     render() {
-        const { MenuItem } = this.props.store;
-        const { style } = this.state;
-        let fid = -99999;
+        const { Menu } = this.props.store;
+        const { items, openChild, activeChild } = this.props.store.Menu;
         return (
-            <Fragment>
-                <div
-                    onClick={this.hideMenuWIcon}
-                    className="menu-bg"
-                    style={style.menu_bg}
-                />
-                <div
-                    onClick={this.showMenu}
-                    ref={menu => (this.menu = menu)}
-                    className="menu-container"
-                >
-                    <ul>
-                        {MenuItem.Items.map(items => {
-                            let { id, title, open, item } = items;
-                            fid--;
-                            return this.getMenuItem(fid, id, title, open, item);
-                        })}
-                    </ul>
-                </div>
-            </Fragment>
+            <ul>
+                {items.map((parent, idx) => {
+                    return (
+                        <Fragment key={parent.id + "_Container"}>
+                            {parent.child.length > 0 ? (
+                                <Fragment key={parent.id + "_box"}>
+                                    <li
+                                        key={parent.id}
+                                        onClick={() => openChild(parent.id)}
+                                    >
+                                        {parent.title}
+                                    </li>
+                                    <ul
+                                        style={{
+                                            display: parent.open
+                                                ? "block"
+                                                : "none"
+                                        }}
+                                    >
+                                        {parent.child.map((childe, idx) => {
+                                            return (
+                                                <Link
+                                                    key={childe.id + "_Link"}
+                                                    href={`${childe.url}`}
+                                                >
+                                                    <li key={childe.id}>
+                                                        {childe.title}
+                                                    </li>
+                                                </Link>
+                                            );
+                                        })}
+                                    </ul>
+                                </Fragment>
+                            ) : (
+                                <Link
+                                    key={parent.id + "_Link"}
+                                    href={`${parent.url}`}
+                                >
+                                    <li key={parent.id}>{parent.title}</li>
+                                </Link>
+                            )}
+                        </Fragment>
+                    );
+                })}
+            </ul>
         );
     }
 }

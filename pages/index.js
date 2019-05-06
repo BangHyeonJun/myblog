@@ -6,8 +6,29 @@ import Search from "./components/Search";
 import "./index.scss";
 
 export default class Index extends Component {
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         const posts = [
+            { img: "test", title: "test", summary: "test" },
+            { img: "test", title: "test", summary: "test" },
+            { img: "test", title: "test", summary: "test" },
+            { img: "test", title: "test", summary: "test" },
+            { img: "test", title: "test", summary: "test" },
+            { img: "test", title: "test", summary: "test" },
+            { img: "test", title: "test", summary: "test" },
+            { img: "test", title: "test", summary: "test" },
+            { img: "test", title: "test", summary: "test" },
+            { img: "test", title: "test", summary: "test" },
+            { img: "test", title: "test", summary: "test" },
+            { img: "test", title: "test", summary: "test" },
+            { img: "test", title: "test", summary: "test" },
+            { img: "test", title: "test", summary: "test" },
+            { img: "test", title: "test", summary: "test" },
+            { img: "test", title: "test", summary: "test" },
+            { img: "test", title: "test", summary: "test" },
             { img: "test", title: "test", summary: "test" },
             { img: "test", title: "test", summary: "test" },
             { img: "test", title: "test", summary: "test" },
@@ -29,9 +50,11 @@ export default class Index extends Component {
                         }) => <Search style={style} />}
                     </Sticky>
                     <div className="post-container">
-                        {posts.map((post, idx) => {
-                            return <PostCard key={idx} />;
-                        })}
+                        <div className="post-box">
+                            {posts.map((post, idx) => {
+                                return <PostCard key={idx} />;
+                            })}
+                        </div>
                     </div>
                 </StickyContainer>
             </Layout>

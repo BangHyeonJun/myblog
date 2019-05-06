@@ -5,7 +5,7 @@ import Menu from "./Menu";
 
 const Layout = ({ children }) => (
     <Container>
-        <Header />
+        {/* <Header /> */}
         <Menu />
         {children}
     </Container>

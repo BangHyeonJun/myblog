@@ -15,6 +15,10 @@ app.prepare()
         //public 폴더에 대한 static 파일들 사용하기.
         server.use(express.static("public"));
 
+        server.get("/", (req, res) => {
+            console.log(req);
+        });
+
         server.get("/p/:id", (req, res) => {
             const actualPage = "/post";
             const queryParams = { id: req.params.id };

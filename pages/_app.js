@@ -2,6 +2,7 @@ import App, { Container } from "next/app";
 import React from "react";
 import { initializeStore } from "../stores/index";
 import { Provider } from "mobx-react";
+import DevTools from "mobx-react-devtools";
 
 // 공용 SCSS
 import "../sass/common.scss";
@@ -40,6 +41,7 @@ class MyMobxApp extends App {
                 <Provider store={this.mobxStore}>
                     <Component {...pageProps} />
                 </Provider>
+                {process.env.NODE_ENV === "development" && <DevTools />}
             </Container>
         );
     }

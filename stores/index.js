@@ -1,4 +1,4 @@
-import HeaderItem from "./HeaderItem";
+import Menu from "./Menu";
 
 let stores = {};
 
@@ -6,7 +6,7 @@ export function initializeStore() {
     // Always make a new store if server, otherwise state is shared between requests
 
     stores = {
-        MenuItem: new HeaderItem()
+        Menu: new Menu()
     };
 
     return stores;
