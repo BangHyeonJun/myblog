@@ -9,8 +9,44 @@ export default class PostCard extends Component {
                 <div className="image-box">
                     <img src="../../static/image/test1.jpg" />
                 </div>
-                <span className="title">title</span>
-                <span className="description">내용</span>
+                <div className="contents-box">
+                    <span className="title">title</span>
+                    <span className="description">내용</span>
+                    <div className="tag-box">
+                        <div>test</div>
+                        <div>test</div>
+                        <div>test</div>
+                        <div>test</div>
+                        <div>test</div>
+                        <div>test</div>
+                        <div>test</div>
+                        <div>test</div>
+                        <div>test</div>
+                        <div>test</div>
+                        <div>test</div>
+                        <div>test</div>
+                        <div>test</div>
+                        <div>test</div>
+                        <div>test</div>
+                        <div>test</div>
+                        <div>test</div>
+                        <div>test</div>
+                        <div>test</div>
+                        <div>test</div>
+                        <div>test</div>
+                        <div>test</div>
+                        <div>test</div>
+                        <div>test</div>
+                        <div>test</div>
+                        <div>test</div>
+                        <div>test</div>
+                        <div>test</div>
+                        <div>test</div>
+                        <div>test</div>
+                        <div>test</div>
+                        <div>test</div>
+                    </div>
+                </div>
             </div>
         );
     }

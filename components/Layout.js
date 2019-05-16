@@ -6,7 +6,7 @@ import Menu from "./Menu";
 const Layout = ({ children }) => (
     <Container>
         {/* <Header /> */}
-        <Menu />
+        {/* <Menu /> */}
         {children}
     </Container>
 );
